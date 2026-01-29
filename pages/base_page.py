@@ -43,4 +43,18 @@ class BasePage:
         return self.wait.until(EC.url_to_be(url))
     
     def get_current_url(self):
-        return self.driver.current_url 
+        return self.driver.current_url
+    
+    def execute_script(self, script, element=None):
+        if element:
+            return self.driver.execute_script(script, element)
+        return self.driver.execute_script(script)
+    
+    def switch_to_window(self, window_handle):
+        self.driver.switch_to.window(window_handle)
+    
+    def get_window_handles(self):
+        return self.driver.window_handles
+    
+    def get_current_window_handle(self):
+        return self.driver.current_window_handle

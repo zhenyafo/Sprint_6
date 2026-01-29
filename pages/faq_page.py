@@ -5,12 +5,10 @@ from .base_page import BasePage
 class FAQPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
         self.locators = FAQPageLocators()
     
     def scroll_to_faq(self):
-        faq_section = self.find_element(self.locators.FAQ_SECTION)
-        self.driver.execute_script("arguments[0].scrollIntoView();", faq_section)
+        self.scroll_to_element(self.locators.FAQ_SECTION)
     
     def click_question(self, question_index):
         question_locator = self.locators.QUESTION_LOCATORS[question_index]

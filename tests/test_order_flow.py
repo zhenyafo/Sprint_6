@@ -2,11 +2,11 @@ import pytest
 import allure
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
+from window_manager import WindowManager
 
 
 @allure.suite("Тесты процесса заказа")
 class TestOrderFlow:
-    # Тестовые данные
     ORDER_DATA = [
         {
             "name": "Иван",
@@ -14,7 +14,7 @@ class TestOrderFlow:
             "address": "ул. Ленина, д. 1",
             "metro_station": "Сокольники",
             "phone": "+79991234567",
-            "date": "28.01.2026",
+            "date": "2026-01-28",  
             "rental_period": "сутки",
             "color": "black",
             "comment": "Позвонить за час"
@@ -25,7 +25,7 @@ class TestOrderFlow:
             "address": "пр. Мира, д. 10",
             "metro_station": "Черкизовская",
             "phone": "+79998765432",
-            "date": "29.01.2026",
+            "date": "2026-01-29", 
             "rental_period": "двое суток",
             "color": "grey",
             "comment": "Оставить у подъезда"
@@ -96,6 +96,7 @@ class TestOrderFlow:
     def test_yandex_logo_redirect(self, driver):
         with allure.step("Инициализация страниц"):
             main_page = MainPage(driver)
+            window_manager = WindowManager(driver)
         
         with allure.step("Принятие куки"):
             main_page.accept_cookies()
@@ -104,7 +105,7 @@ class TestOrderFlow:
             main_page.click_yandex_logo()
         
         with allure.step("Переключение на новую вкладку"):
-            new_url = main_page.switch_to_new_window()
+            new_url = window_manager.switch_to_new_window()
         
         with allure.step("Проверка редиректа на Дзен"):
             assert "dzen.ru" in new_url, f"Не произошел переход на Дзен. Текущий URL: {new_url}" 

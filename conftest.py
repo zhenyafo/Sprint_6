@@ -12,4 +12,4 @@ def driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     driver.get("https://qa-scooter.praktikum-services.ru/")
     yield driver
-    driver.quit() 
+    driver.quit()

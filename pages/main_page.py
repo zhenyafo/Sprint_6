@@ -5,7 +5,6 @@ from .base_page import BasePage
 class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
         self.locators = MainPageLocators()
     
     def accept_cookies(self):
@@ -25,14 +24,5 @@ class MainPage(BasePage):
     def click_yandex_logo(self):
         self.click(self.locators.YANDEX_LOGO)
     
-    def switch_to_new_window(self):
-        main_window = self.driver.current_window_handle
-        all_windows = self.driver.window_handles
-        for window in all_windows:
-            if window != main_window:
-                self.driver.switch_to.window(window)
-                break
-        return self.driver.current_url
-    
     def is_main_page(self):
-        return "https://qa-scooter.praktikum-services.ru/" in self.driver.current_url 
+        return "https://qa-scooter.praktikum-services.ru/" in self.get_current_url()
