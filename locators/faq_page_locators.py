@@ -35,4 +35,4 @@ class FAQPageLocators:
         "Да, обязательно. Всем самокатов! И Москве, и Московской области."
     ]
     
-    FAQ_SECTION = (By.CLASS_NAME, "Home_FAQ__3uVm4")
+    FAQ_SECTION = (By.CLASS_NAME, "Home_FAQ__3uVm4") 

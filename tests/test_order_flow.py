@@ -108,4 +108,4 @@ class TestOrderFlow:
             new_url = window_manager.switch_to_new_window()
         
         with allure.step("Проверка редиректа на Дзен"):
-            assert "dzen.ru" in new_url, f"Не произошел переход на Дзен. Текущий URL: {new_url}" 
+            assert "dzen.ru" in new_url, f"Не произошел переход на Дзен. Текущий URL: {new_url}"  

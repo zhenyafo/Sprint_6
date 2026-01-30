@@ -7,4 +7,4 @@ allure-results/
 .venv/
 *.log
 chromedriver
-geckodriver
+geckodriver 

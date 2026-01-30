@@ -22,4 +22,4 @@ class FAQPage(BasePage):
     def is_answer_displayed(self, answer_index):
         answer_locator = self.locators.ANSWER_LOCATORS[answer_index]
         element = self.find_element(answer_locator)
-        return element.is_displayed()
+        return element.is_displayed() 

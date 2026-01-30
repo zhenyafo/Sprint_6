@@ -14,4 +14,4 @@ class WindowManager(BasePage):
             if window != main_window:
                 self.switch_to_window(window)
                 break
-        return self.get_current_url()
+        return self.get_current_url() 

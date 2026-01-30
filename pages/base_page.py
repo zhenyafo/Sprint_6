@@ -57,4 +57,4 @@ class BasePage:
         return self.driver.window_handles
     
     def get_current_window_handle(self):
-        return self.driver.current_window_handle
+        return self.driver.current_window_handle 

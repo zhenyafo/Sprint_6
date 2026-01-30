@@ -49,4 +49,4 @@ class OrderPage(BasePage):
         return self.get_text(self.locators.SUCCESS_MESSAGE)
     
     def is_success_modal_displayed(self):
-        return self.is_element_visible(self.locators.ORDER_MODAL)
+        return self.is_element_visible(self.locators.ORDER_MODAL) 
