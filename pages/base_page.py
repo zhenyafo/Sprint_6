@@ -45,10 +45,11 @@ class BasePage:
     def get_current_url(self):
         return self.driver.current_url
     
-    def execute_script(self, script, element=None):
-        if element:
-            return self.driver.execute_script(script, element)
-        return self.driver.execute_script(script)
+    def set_input_value_by_script(self, locator, value):
+        """Установить значение input через JavaScript"""
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].value = arguments[1];", element, value)
+        self.driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", element)
     
     def switch_to_window(self, window_handle):
         self.driver.switch_to.window(window_handle)
@@ -57,4 +58,4 @@ class BasePage:
         return self.driver.window_handles
     
     def get_current_window_handle(self):
-        return self.driver.current_window_handle 
+        return self.driver.current_window_handle

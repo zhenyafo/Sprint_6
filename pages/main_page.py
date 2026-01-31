@@ -25,4 +25,4 @@ class MainPage(BasePage):
         self.click(self.locators.YANDEX_LOGO)
     
     def is_main_page(self):
-        return "https://qa-scooter.praktikum-services.ru/" in self.get_current_url() 
+        return "https://qa-scooter.praktikum-services.ru/" in self.get_current_url()

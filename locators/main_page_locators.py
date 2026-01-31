@@ -7,4 +7,4 @@ class MainPageLocators:
     SCOOTER_LOGO = (By.XPATH, ".//a[@class='Header_LogoScooter__3lsAR']")
     YANDEX_LOGO = (By.XPATH, ".//a[@class='Header_LogoYandex__3TSOI']")
     COOKIE_BUTTON = (By.ID, "rcc-confirm-button")
-    FAQ_SECTION = (By.CLASS_NAME, "Home_FAQ__3uVm4") 
+    FAQ_SECTION = (By.CLASS_NAME, "Home_FAQ__3uVm4")

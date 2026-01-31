@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from locators.order_page_locators import OrderPageLocators
 from .base_page import BasePage
 
@@ -13,7 +14,7 @@ class OrderPage(BasePage):
         self.send_keys(self.locators.ADDRESS_INPUT, address)
         
         self.click(self.locators.METRO_STATION_INPUT)
-        station_locator = (By.XPATH, f".//div[@class='select-search__select']//li[@data-value]//*[contains(text(), '{metro_station}')]")
+        station_locator = self.locators.get_metro_station_locator(metro_station)
         self.click(station_locator)
         
         self.send_keys(self.locators.PHONE_INPUT, phone)
@@ -22,10 +23,7 @@ class OrderPage(BasePage):
         self.click(self.locators.NEXT_BUTTON)
     
     def fill_second_page(self, date, rental_period, color, comment):
-
-        date_input = self.find_element(self.locators.DATE_INPUT)
-        self.execute_script("arguments[0].value = arguments[1];", date_input, date)
-
+        self.set_input_value_by_script(self.locators.DATE_INPUT, date)
         self.click(self.locators.RENTAL_PERIOD_INPUT)
         
         self.click(self.locators.RENTAL_PERIOD_INPUT)
@@ -49,4 +47,4 @@ class OrderPage(BasePage):
         return self.get_text(self.locators.SUCCESS_MESSAGE)
     
     def is_success_modal_displayed(self):
-        return self.is_element_visible(self.locators.ORDER_MODAL) 
+        return self.is_element_visible(self.locators.ORDER_MODAL)

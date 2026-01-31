@@ -41,4 +41,4 @@ class TestFAQ:
             assert actual_answer == expected_answer, \
                 f"Неверный текст ответа для вопроса {question_index + 1}.\n" \
                 f"Ожидалось: {expected_answer}\n" \
-                f"Получено: {actual_answer}" 
+                f"Получено: {actual_answer}"
